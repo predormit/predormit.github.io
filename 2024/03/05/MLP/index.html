@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MLP | predormit</title><meta name="author" content="predormit"><meta name="copyright" content="predormit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="感知机二分类，参数大于0输出1，小于0输出-1.线性回归输出实数softmax回归输出概率训练感知机：initialize w&#x3D;0,b&#x3D;0如果yi((w,x)+b) &lt;&#x3D;0，即分类错误，更新w,b.等价于批量大小为1的梯度下降。问题：感知机无法处理XOR函数。MLP(multi-layer perception)多层感知机一层学不了复杂的，因此引入多层。隐藏层大">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>red-black tree | predormit</title><meta name="author" content="predormit"><meta name="copyright" content="predormit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="red-black tree性质1.每个节点是红色或是黑色2.根节点是黑色的3.所有叶结点是黑色的4.如果一个结点是红色的，那么它的两个子节点都是黑色的5.对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。作用使得没有一条路径是另一条的两倍长度，达到二叉平衡树。旋转保证二叉树性质，，O(1)插入先正常插入，再调整满足性质1.是树根，变黑2.p是黑，过3.p是红的，祖父是黑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MLP">
+<meta property="og:title" content="red-black tree">
 <meta property="og:url" content="http://example.com/2024/03/05/MLP/index.html">
 <meta property="og:site_name" content="predormit">
-<meta property="og:description" content="感知机二分类，参数大于0输出1，小于0输出-1.线性回归输出实数softmax回归输出概率训练感知机：initialize w&#x3D;0,b&#x3D;0如果yi((w,x)+b) &lt;&#x3D;0，即分类错误，更新w,b.等价于批量大小为1的梯度下降。问题：感知机无法处理XOR函数。MLP(multi-layer perception)多层感知机一层学不了复杂的，因此引入多层。隐藏层大">
+<meta property="og:description" content="red-black tree性质1.每个节点是红色或是黑色2.根节点是黑色的3.所有叶结点是黑色的4.如果一个结点是红色的，那么它的两个子节点都是黑色的5.对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。作用使得没有一条路径是另一条的两倍长度，达到二叉平衡树。旋转保证二叉树性质，，O(1)插入先正常插入，再调整满足性质1.是树根，变黑2.p是黑，过3.p是红的，祖父是黑">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2024-03-05T13:32:26.000Z">
-<meta property="article:modified_time" content="2024-09-12T13:23:13.241Z">
+<meta property="article:modified_time" content="2024-09-13T07:07:52.578Z">
 <meta property="article:author" content="predormit">
-<meta property="article:tag" content="ai">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/05/MLP/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
@@ -53,12 +53,12 @@
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'MLP',
+  title: 'red-black tree',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-09-12 21:23:13'
+  postUpdate: '2024-09-13 15:07:52'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -162,5 +162,373 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="predormit"><span class="site-name">predormit</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MLP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T13:32:26.000Z" title="Created 2024-03-05 21:32:26">2024-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-12T13:23:13.241Z" title="Updated 2024-09-12 21:23:13">2024-09-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MLP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h3 id="二分类，参数大于0输出1，小于0输出-1"><a href="#二分类，参数大于0输出1，小于0输出-1" class="headerlink" title="二分类，参数大于0输出1，小于0输出-1."></a>二分类，参数大于0输出1，小于0输出-1.</h3><h3 id="线性回归输出实数"><a href="#线性回归输出实数" class="headerlink" title="线性回归输出实数"></a>线性回归输出实数</h3><h3 id="softmax回归输出概率"><a href="#softmax回归输出概率" class="headerlink" title="softmax回归输出概率"></a>softmax回归输出概率</h3><h2 id="训练感知机："><a href="#训练感知机：" class="headerlink" title="训练感知机："></a>训练感知机：</h2><h3 id="initialize-w-0-b-0"><a href="#initialize-w-0-b-0" class="headerlink" title="initialize w&#x3D;0,b&#x3D;0"></a>initialize w&#x3D;0,b&#x3D;0</h3><h3 id="如果yi-w-x-b"><a href="#如果yi-w-x-b" class="headerlink" title="如果yi((w,x)+b) &lt;&#x3D;0，即分类错误，更新w,b.等价于批量大小为1的梯度下降。"></a>如果yi((w,x)+b) &lt;&#x3D;0，即分类错误，更新w,b.等价于批量大小为1的梯度下降。</h3><h3 id="问题：感知机无法处理XOR函数。"><a href="#问题：感知机无法处理XOR函数。" class="headerlink" title="问题：感知机无法处理XOR函数。"></a>问题：感知机无法处理XOR函数。</h3><h1 id="MLP-multi-layer-perception-多层感知机"><a href="#MLP-multi-layer-perception-多层感知机" class="headerlink" title="MLP(multi-layer perception)多层感知机"></a>MLP(multi-layer perception)多层感知机</h1><h2 id="一层学不了复杂的，因此引入多层。"><a href="#一层学不了复杂的，因此引入多层。" class="headerlink" title="一层学不了复杂的，因此引入多层。"></a>一层学不了复杂的，因此引入多层。</h2><h2 id="隐藏层大小是超参数。"><a href="#隐藏层大小是超参数。" class="headerlink" title="隐藏层大小是超参数。"></a>隐藏层大小是超参数。</h2><h2 id="如果没有加激活函数，那仍然是线性。实际上仍然是单层。"><a href="#如果没有加激活函数，那仍然是线性。实际上仍然是单层。" class="headerlink" title="如果没有加激活函数，那仍然是线性。实际上仍然是单层。"></a>如果没有加激活函数，那仍然是线性。实际上仍然是单层。</h2><h3 id="一般来是，深层感知机的隐藏层大小越来越小，慢慢压缩到输出大小。"><a href="#一般来是，深层感知机的隐藏层大小越来越小，慢慢压缩到输出大小。" class="headerlink" title="一般来是，深层感知机的隐藏层大小越来越小，慢慢压缩到输出大小。"></a>一般来是，深层感知机的隐藏层大小越来越小，慢慢压缩到输出大小。</h3><p><img src="/.com//MLP%5C1.png"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">predormit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/05/MLP/">http://example.com/2024/03/05/MLP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ai/">ai</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/07/transformer/" title="transformer"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">transformer</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/10/2023-11%E6%9C%88%E6%97%A5%E5%BF%97/" title="2023/11月日志"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">2023/11月日志</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">predormit</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">感知机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E7%B1%BB%EF%BC%8C%E5%8F%82%E6%95%B0%E5%A4%A7%E4%BA%8E0%E8%BE%93%E5%87%BA1%EF%BC%8C%E5%B0%8F%E4%BA%8E0%E8%BE%93%E5%87%BA-1"><span class="toc-number">1.0.1.</span> <span class="toc-text">二分类，参数大于0输出1，小于0输出-1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E8%BE%93%E5%87%BA%E5%AE%9E%E6%95%B0"><span class="toc-number">1.0.2.</span> <span class="toc-text">线性回归输出实数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax%E5%9B%9E%E5%BD%92%E8%BE%93%E5%87%BA%E6%A6%82%E7%8E%87"><span class="toc-number">1.0.3.</span> <span class="toc-text">softmax回归输出概率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%84%9F%E7%9F%A5%E6%9C%BA%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">训练感知机：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#initialize-w-0-b-0"><span class="toc-number">1.1.1.</span> <span class="toc-text">initialize w&#x3D;0,b&#x3D;0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9Cyi-w-x-b"><span class="toc-number">1.1.2.</span> <span class="toc-text">如果yi((w,x)+b) &lt;&#x3D;0，即分类错误，更新w,b.等价于批量大小为1的梯度下降。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%97%A0%E6%B3%95%E5%A4%84%E7%90%86XOR%E5%87%BD%E6%95%B0%E3%80%82"><span class="toc-number">1.1.3.</span> <span class="toc-text">问题：感知机无法处理XOR函数。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MLP-multi-layer-perception-%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">MLP(multi-layer perception)多层感知机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%B1%82%E5%AD%A6%E4%B8%8D%E4%BA%86%E5%A4%8D%E6%9D%82%E7%9A%84%EF%BC%8C%E5%9B%A0%E6%AD%A4%E5%BC%95%E5%85%A5%E5%A4%9A%E5%B1%82%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">一层学不了复杂的，因此引入多层。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%B1%82%E5%A4%A7%E5%B0%8F%E6%98%AF%E8%B6%85%E5%8F%82%E6%95%B0%E3%80%82"><span class="toc-number">2.2.</span> <span class="toc-text">隐藏层大小是超参数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E5%8A%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%8C%E9%82%A3%E4%BB%8D%E7%84%B6%E6%98%AF%E7%BA%BF%E6%80%A7%E3%80%82%E5%AE%9E%E9%99%85%E4%B8%8A%E4%BB%8D%E7%84%B6%E6%98%AF%E5%8D%95%E5%B1%82%E3%80%82"><span class="toc-number">2.3.</span> <span class="toc-text">如果没有加激活函数，那仍然是线性。实际上仍然是单层。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E6%9D%A5%E6%98%AF%EF%BC%8C%E6%B7%B1%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E9%9A%90%E8%97%8F%E5%B1%82%E5%A4%A7%E5%B0%8F%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B0%8F%EF%BC%8C%E6%85%A2%E6%85%A2%E5%8E%8B%E7%BC%A9%E5%88%B0%E8%BE%93%E5%87%BA%E5%A4%A7%E5%B0%8F%E3%80%82"><span class="toc-number">2.3.1.</span> <span class="toc-text">一般来是，深层感知机的隐藏层大小越来越小，慢慢压缩到输出大小。</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/29/ligo%E8%A7%A3%E8%AF%BB/" title="No title">No title</a><time datetime="2024-05-29T15:35:39.953Z" title="Created 2024-05-29 23:35:39">2024-05-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/12/ligo-code/" title="ligo code">ligo code</a><time datetime="2024-03-12T12:36:43.000Z" title="Created 2024-03-12 20:36:43">2024-03-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/transformer/" title="transformer">transformer</a><time datetime="2024-03-07T07:24:18.000Z" title="Created 2024-03-07 15:24:18">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/05/MLP/" title="MLP">MLP</a><time datetime="2024-03-05T13:32:26.000Z" title="Created 2024-03-05 21:32:26">2024-03-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/10/2023-11%E6%9C%88%E6%97%A5%E5%BF%97/" title="2023/11月日志">2023/11月日志</a><time datetime="2023-12-10T10:44:06.000Z" title="Created 2023-12-10 18:44:06">2023-12-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By predormit</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="predormit"><span class="site-name">predormit</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">red-black tree</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T13:32:26.000Z" title="Created 2024-03-05 21:32:26">2024-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-13T07:07:52.578Z" title="Updated 2024-09-13 15:07:52">2024-09-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="red-black tree"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="red-black-tree"><a href="#red-black-tree" class="headerlink" title="red-black tree"></a>red-black tree</h1><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h3 id="1-每个节点是红色或是黑色"><a href="#1-每个节点是红色或是黑色" class="headerlink" title="1.每个节点是红色或是黑色"></a>1.每个节点是红色或是黑色</h3><h3 id="2-根节点是黑色的"><a href="#2-根节点是黑色的" class="headerlink" title="2.根节点是黑色的"></a>2.根节点是黑色的</h3><h3 id="3-所有叶结点是黑色的"><a href="#3-所有叶结点是黑色的" class="headerlink" title="3.所有叶结点是黑色的"></a>3.所有叶结点是黑色的</h3><h3 id="4-如果一个结点是红色的，那么它的两个子节点都是黑色的"><a href="#4-如果一个结点是红色的，那么它的两个子节点都是黑色的" class="headerlink" title="4.如果一个结点是红色的，那么它的两个子节点都是黑色的"></a>4.如果一个结点是红色的，那么它的两个子节点都是黑色的</h3><h3 id="5-对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。"><a href="#5-对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。" class="headerlink" title="5.对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。"></a>5.对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="使得没有一条路径是另一条的两倍长度，达到二叉平衡树。"><a href="#使得没有一条路径是另一条的两倍长度，达到二叉平衡树。" class="headerlink" title="使得没有一条路径是另一条的两倍长度，达到二叉平衡树。"></a>使得没有一条路径是另一条的两倍长度，达到二叉平衡树。</h3><h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><h3 id="保证二叉树性质，，O-1"><a href="#保证二叉树性质，，O-1" class="headerlink" title="保证二叉树性质，，O(1)"></a>保证二叉树性质，，O(1)</h3><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><h3 id="先正常插入，再调整满足性质"><a href="#先正常插入，再调整满足性质" class="headerlink" title="先正常插入，再调整满足性质"></a>先正常插入，再调整满足性质</h3><h3 id="1-是树根，变黑"><a href="#1-是树根，变黑" class="headerlink" title="1.是树根，变黑"></a>1.是树根，变黑</h3><h3 id="2-p是黑，过"><a href="#2-p是黑，过" class="headerlink" title="2.p是黑，过"></a>2.p是黑，过</h3><h3 id="3-p是红的，祖父是黑"><a href="#3-p是红的，祖父是黑" class="headerlink" title="3.p是红的，祖父是黑"></a>3.p是红的，祖父是黑</h3><h4 id="（1）叔叔是红"><a href="#（1）叔叔是红" class="headerlink" title="（1）叔叔是红"></a>（1）叔叔是红</h4><h4 id><a href="#" class="headerlink" title></a><img src="/images/MLP/1-1726210809767-1.png" alt="1"></h4><h4 id="继续去维护上层树的结构"><a href="#继续去维护上层树的结构" class="headerlink" title="继续去维护上层树的结构"></a>继续去维护上层树的结构</h4><h4 id="（2）叔叔是黑"><a href="#（2）叔叔是黑" class="headerlink" title="（2）叔叔是黑"></a>（2）叔叔是黑</h4><h4 id="将红节点旋转上来，再变黑色"><a href="#将红节点旋转上来，再变黑色" class="headerlink" title="将红节点旋转上来，再变黑色"></a>将红节点旋转上来，再变黑色</h4><p><img src="/images/MLP/4-1726210817477-3.png" alt="4"><br><img src="/images/MLP/2-1726210822976-5.png" alt="2"></p>
+<h4 id="（3）叔叔不存在"><a href="#（3）叔叔不存在" class="headerlink" title="（3）叔叔不存在"></a>（3）叔叔不存在</h4><h4 id="同理"><a href="#同理" class="headerlink" title="同理"></a>同理</h4><p><img src="/images/MLP/3-1726210828937-7.png" alt="3"></p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="先正常删除，如果删去的节点颜色为黑色则调用Fixup"><a href="#先正常删除，如果删去的节点颜色为黑色则调用Fixup" class="headerlink" title="先正常删除，如果删去的节点颜色为黑色则调用Fixup"></a>先正常删除，如果删去的节点颜色为黑色则调用Fixup</h3><h3 id="4种情况-1：兄弟结点为红色。做法：兄弟结点改为黑，父亲结点改为红，左旋父亲，更新删除结点的兄弟结点"><a href="#4种情况-1：兄弟结点为红色。做法：兄弟结点改为黑，父亲结点改为红，左旋父亲，更新删除结点的兄弟结点" class="headerlink" title="4种情况 1：兄弟结点为红色。做法：兄弟结点改为黑，父亲结点改为红，左旋父亲，更新删除结点的兄弟结点"></a>4种情况 1：兄弟结点为红色。做法：兄弟结点改为黑，父亲结点改为红，左旋父亲，更新删除结点的兄弟结点</h3><h3 id="2-兄弟结点及其孩子都是黑色。做法：兄弟结点改为红色，同时父亲结点为新的删除结点。"><a href="#2-兄弟结点及其孩子都是黑色。做法：兄弟结点改为红色，同时父亲结点为新的删除结点。" class="headerlink" title="2:兄弟结点及其孩子都是黑色。做法：兄弟结点改为红色，同时父亲结点为新的删除结点。"></a>2:兄弟结点及其孩子都是黑色。做法：兄弟结点改为红色，同时父亲结点为新的删除结点。</h3><h3 id="3-兄弟结点为黑，左孩子红，右孩子黑。做法：兄弟结点设为红色，兄弟的左孩子设为黑，对兄弟结点右旋，更新删除结点的兄弟结点。"><a href="#3-兄弟结点为黑，左孩子红，右孩子黑。做法：兄弟结点设为红色，兄弟的左孩子设为黑，对兄弟结点右旋，更新删除结点的兄弟结点。" class="headerlink" title="3:兄弟结点为黑，左孩子红，右孩子黑。做法：兄弟结点设为红色，兄弟的左孩子设为黑，对兄弟结点右旋，更新删除结点的兄弟结点。"></a>3:兄弟结点为黑，左孩子红，右孩子黑。做法：兄弟结点设为红色，兄弟的左孩子设为黑，对兄弟结点右旋，更新删除结点的兄弟结点。</h3><h3 id="4-兄弟结点为黑，右孩子红。做法：父亲结点的颜色给兄弟结点，父节点再设为黑色，兄弟节点的右孩子为黑，根据父节点左旋，最后设置替换删除结点的结点为根结点，用来终止循环"><a href="#4-兄弟结点为黑，右孩子红。做法：父亲结点的颜色给兄弟结点，父节点再设为黑色，兄弟节点的右孩子为黑，根据父节点左旋，最后设置替换删除结点的结点为根结点，用来终止循环" class="headerlink" title="4:兄弟结点为黑，右孩子红。做法：父亲结点的颜色给兄弟结点，父节点再设为黑色，兄弟节点的右孩子为黑，根据父节点左旋，最后设置替换删除结点的结点为根结点，用来终止循环"></a>4:兄弟结点为黑，右孩子红。做法：父亲结点的颜色给兄弟结点，父节点再设为黑色，兄弟节点的右孩子为黑，根据父节点左旋，最后设置替换删除结点的结点为根结点，用来终止循环</h3><h4 id="贴个代码"><a href="#贴个代码" class="headerlink" title="贴个代码"></a>贴个代码</h4><pre><code>#include&lt;iostream&gt;
+#include&lt;assert.h&gt;
+
+typedef enum&#123;RED = 0,BLACK&#125; Color;
+template &lt;typename Type&gt;
+struct RBTNode&#123;
+    Type key;
+    Color color;
+    RBTNode* left;
+    RBTNode* right;
+    RBTNode* parent;
+&#125;;
+
+template&lt;typename Type&gt;
+class RBTree&#123;
+public:
+    //构造函数
+    RBTree()&#123;
+        Nil = BuyNode();
+        root = Nil;
+        Nil -&gt; color = BLACK;
+    &#125;
+    //析构函数
+    ~RBTree()&#123;
+        destory(root);
+        delete Nil;
+        Nil = NULL;
+    &#125;
+    //中序遍历
+    void Inorder()&#123;
+        InOrder(root);
+        std::cout &lt;&lt; std::endl;
+    &#125;
+    //前序遍历
+    void preorder()&#123;
+        preOrder(root);
+        std::cout &lt;&lt; std::endl;
+    &#125;
+    //插入
+    bool Insert(const Type &amp;value)&#123;
+        RBTNode&lt;Type&gt;* s = root;
+        RBTNode&lt;Type&gt;* y = Nil;//记录父节点
+        while(s != Nil)&#123;
+            if(value == s -&gt; key)&#123;
+                return false;
+            &#125;
+            y = s;
+            if(value &gt; s -&gt; key)&#123;
+                s = s -&gt; right;
+            &#125;
+            else&#123;
+                s = s -&gt; left;
+            &#125;
+        &#125;
+        s = BuyNode(value);
+
+        if(y == Nil)&#123;
+            root = s;
+            root -&gt; parent = y;
+        &#125;
+        else&#123;
+            if(value &lt; y -&gt; key)&#123;
+                y -&gt; left = s;
+            &#125;
+            else&#123;
+                y -&gt; right = s;
+            &#125;
+            s -&gt; parent = y;
+        &#125;
+        RB_INSERT_FIXUP(s);
+        return true;
+    &#125;
+    //删除
+    void Remove(Type key)&#123;
+        RBTNode&lt;Type&gt;* t;
+        if((t = Search(root,key))!= Nil)&#123;
+            Remove(t);
+        &#125;
+        else&#123;
+            std::cout &lt;&lt; &quot;Key is not exist.&quot; &lt;&lt; std::endl;
+        &#125;
+    &#125;
+    //打印结点颜色
+    void InorderPrint()&#123;
+        InOrderPrint(root);
+    &#125;
+protected:
+    RBTNode&lt;Type&gt;* BuyNode(const Type &amp;x = Type())&#123;
+        RBTNode&lt;Type&gt;* s = new RBTNode&lt;Type&gt;();
+        assert(s != NULL);
+        s -&gt; color = RED;
+        s -&gt; key = x;
+        s -&gt; left = s -&gt; right = s -&gt; parent = Nil;
+        return s;
+    &#125;
+
+    void InOrder(RBTNode&lt;Type&gt;* root)&#123;
+        if(root != Nil)&#123;
+            InOrder(root-&gt;left);
+            std::cout &lt;&lt; root -&gt; key &lt;&lt; &quot; &quot;;
+            InOrder(root-&gt;right);
+        &#125;
+    &#125;
+
+    void preOrder(RBTNode&lt;Type&gt;* root)&#123;
+        if(root != Nil)&#123;
+            std::cout &lt;&lt; root -&gt; key &lt;&lt; &quot; &quot;;
+            preOrder(root-&gt;left);
+            preOrder(root-&gt;right);
+        &#125;
+    &#125;
+
+    void LeftRotate(RBTNode&lt;Type&gt;* x)&#123;
+        RBTNode&lt;Type&gt;* y = x -&gt; right;
+        x -&gt; right = y -&gt; left;
+        if(y -&gt; left != Nil)&#123;
+            y -&gt; left -&gt; parent = x;
+        &#125;
+        y -&gt; parent = x -&gt; parent;
+        if(root == x)&#123;
+            root = y;
+        &#125;
+        else if(x == x -&gt; parent -&gt; left)&#123;
+            x -&gt; parent -&gt; left = y;
+        &#125;
+        else&#123;
+            x -&gt; parent -&gt; right = y;
+        &#125;
+        y -&gt; left = x;
+        x -&gt; parent = y;
+    &#125;
+
+    void RightRotate(RBTNode&lt;Type&gt;* x)&#123;
+        RBTNode&lt;Type&gt;* y = x -&gt; left;
+        x -&gt; left = y -&gt; right;
+        if(y -&gt; right != Nil)&#123;
+            y -&gt; right -&gt; parent = x;
+        &#125;
+        y -&gt; parent = x -&gt; parent;
+        if(root == x)&#123;
+            root = y;
+        &#125;
+        else if(x == x -&gt; parent -&gt; left)&#123;
+            x -&gt; parent -&gt; left = y;
+        &#125;
+        else&#123;
+            x -&gt; parent -&gt; right = y;
+        &#125;
+        y -&gt; right = x;
+        x -&gt; parent = y;
+    &#125;
+
+    void RB_INSERT_FIXUP(RBTNode&lt;Type&gt;* s)&#123;
+        while(s-&gt;parent-&gt;color == RED)&#123;
+            if(s-&gt;parent == s-&gt;parent-&gt;parent-&gt;left)&#123;
+                RBTNode&lt;Type&gt;* uncle = s-&gt;parent-&gt;parent-&gt;right;
+                if(uncle-&gt;color==RED)&#123;
+                    s-&gt;parent-&gt;color = BLACK;
+                    uncle-&gt;color = BLACK;
+                    s-&gt;parent-&gt;parent-&gt;color = RED;
+                    s = s-&gt;parent-&gt;parent;
+                &#125;
+                else&#123;
+                    if(s == s-&gt;parent-&gt;right)&#123;
+                        s = s-&gt;parent;
+                        LeftRotate(s);//此时s是最左下角的那个红节点
+                    &#125;
+                    s-&gt;parent-&gt;color = BLACK;
+                    s-&gt;parent-&gt;parent-&gt;color = RED;
+                    RightRotate(s-&gt;parent-&gt;parent);
+                &#125;
+            &#125;
+            else&#123;
+                if(s-&gt;parent == s-&gt;parent-&gt;parent-&gt;right)&#123;
+                    RBTNode&lt;Type&gt;* uncle = s-&gt;parent-&gt;parent-&gt;left;
+                if(uncle-&gt;color==RED)&#123;
+                    s-&gt;parent-&gt;color = BLACK;
+                    uncle-&gt;color = BLACK;
+                    s-&gt;parent-&gt;parent-&gt;color = RED;
+                    s = s-&gt;parent-&gt;parent;
+                &#125;
+                else&#123;
+                    if(s == s-&gt;parent-&gt;left)&#123;
+                        s = s-&gt;parent;
+                        RightRotate(s);//此时s是最左下角的那个红节点
+                    &#125;
+                    s-&gt;parent-&gt;color = BLACK;
+                    s-&gt;parent-&gt;parent-&gt;color = RED;
+                    LeftRotate(s-&gt;parent-&gt;parent);
+                &#125;
+                &#125;
+            &#125;
+        &#125;
+        root-&gt;color = BLACK;
+    &#125;
+    RBTNode&lt;Type&gt;* Search(RBTNode&lt;Type&gt;* root,Type key)const&#123;
+        if(root == Nil)&#123;
+            return Nil;
+        &#125;
+        if(root -&gt; key == key)&#123;
+            return root;
+        &#125;
+        if(key &lt; root -&gt; key)&#123;
+            return Search(root-&gt;left,key);
+        &#125;
+        else&#123;
+            return Search(root-&gt;right,key);
+        &#125;
+    &#125;
+    void Transplant(RBTNode&lt;Type&gt;* u,RBTNode&lt;Type&gt;* v)&#123;
+        if(u-&gt;parent == Nil)&#123;
+            root = v;
+        &#125;
+        else if(u == u-&gt;parent-&gt;left)&#123;
+            u-&gt;parent-&gt;left = v;
+        &#125;
+        else&#123;
+            u-&gt;parent-&gt;right = v;
+        &#125;
+        v -&gt; parent = u -&gt; parent;
+    &#125;
+    RBTNode&lt;Type&gt;* Minimum(RBTNode&lt;Type&gt;* x)&#123;
+        if(x-&gt;left == Nil)&#123;
+            return x;
+        &#125;
+        return Minimum(x-&gt;left);
+    &#125;
+    void Remove(RBTNode&lt;Type&gt;* z)&#123;
+        RBTNode&lt;Type&gt;* x = Nil;
+        RBTNode&lt;Type&gt;* y = z;
+        Color yOriginColor = y-&gt;color;
+        if(z-&gt;left == Nil)&#123;
+            x = z-&gt;right;
+            Transplant(z,z-&gt;right);
+        &#125;
+        else if(z-&gt;right == Nil)&#123;
+            x = z-&gt;left;
+            Transplant(z,z-&gt;left);
+        &#125;
+        else&#123;
+            y = Minimum(z-&gt;right);
+            yOriginColor = y-&gt;color;
+            x = y-&gt;right;
+            if(y-&gt;parent==z)&#123;
+                x -&gt; parent = y;
+            &#125;
+            else&#123;
+                Transplant(y,y-&gt;right);
+                y-&gt;right = z-&gt;right;
+                y-&gt;right-&gt;parent = y;
+            &#125;
+            Transplant(z,y);
+            y-&gt;left = z-&gt;left;
+            z-&gt;left-&gt;parent = y;
+            y-&gt;color = z-&gt;color;
+        &#125;
+        if(yOriginColor == BLACK)&#123;
+            Remove_Fixup(x);//x是被删结点的子节点
+        &#125;
+    &#125;
+    void Remove_Fixup(RBTNode&lt;Type&gt;* x)&#123;
+        while(x != root &amp;&amp; x-&gt;color == BLACK)&#123;
+            if(x == x-&gt;parent-&gt;left)&#123;
+                RBTNode&lt;Type&gt;* w = x-&gt;parent-&gt;right;
+                if(w-&gt;color==RED)&#123; //情况1
+                    w-&gt;color = BLACK;
+                    x-&gt;parent-&gt;color = RED;
+                    LeftRotate(x-&gt;parent);
+                    w = x-&gt;parent-&gt;right;
+                &#125;
+                if(w-&gt;left-&gt;color==BLACK &amp;&amp; w-&gt;right-&gt;color==BLACK)&#123;
+                    w-&gt;color = RED;
+                    x = x-&gt;parent;
+                &#125;//情况2，进下一个while循环
+                else&#123;
+                    if(w-&gt;right-&gt;color==BLACK)&#123;
+                        w-&gt;color = RED;
+                        w-&gt;left-&gt;color = BLACK;
+                        RightRotate(w);
+                        w = x-&gt;parent-&gt;right;
+                    &#125;
+                    w-&gt;color = x-&gt;parent-&gt;color;
+                    x-&gt;parent-&gt;color = BLACK;
+                    w-&gt;right-&gt;color = BLACK;
+                    LeftRotate(x-&gt;parent);
+                    x = root; //结束循环
+                &#125;
+            &#125;
+            else&#123;
+                RBTNode&lt;Type&gt;* w = x-&gt;parent-&gt;left;
+                if(w-&gt;color==RED)&#123; //情况1
+                    w-&gt;color = BLACK;
+                    x-&gt;parent-&gt;color = RED;
+                    RightRotate(x-&gt;parent);
+                    w = x-&gt;parent-&gt;left;
+                &#125;
+                if(w-&gt;left-&gt;color==BLACK &amp;&amp; w-&gt;right-&gt;color==BLACK)&#123;
+                    w-&gt;color = RED;
+                    x = x-&gt;parent;
+                &#125;//情况2，进下一个while循环
+                else&#123;
+                    if(w-&gt;left-&gt;color==BLACK)&#123;
+                        w-&gt;color = RED;
+                        w-&gt;right-&gt;color = BLACK;
+                        LeftRotate(w);
+                        w = x-&gt;parent-&gt;left;
+                    &#125;
+                    w-&gt;color = x-&gt;parent-&gt;color;
+                    x-&gt;parent-&gt;color = BLACK;
+                    w-&gt;left-&gt;color = BLACK;
+                    RightRotate(x-&gt;parent);
+                    x = root; //结束循环
+                &#125;
+            &#125;
+        &#125;
+        x-&gt;color = BLACK;
+    &#125;
+    void destory(RBTNode&lt;Type&gt;* &amp;root)&#123;
+        if(root == Nil)&#123;
+            return;
+        &#125;
+        if(root-&gt;left != Nil)&#123;
+            destory(root-&gt;left);
+        &#125;
+        if(root-&gt;right != Nil)&#123;
+            destory(root-&gt;right);
+        &#125;
+        delete root;
+        root = NULL;
+    &#125;
+    void InOrderPrint(RBTNode&lt;Type&gt;* node)&#123;
+        if(node == Nil)&#123;
+            return;
+        &#125;
+        if(node-&gt;left != Nil)&#123;
+            InOrderPrint(node-&gt;left);
+        &#125;
+        std::cout &lt;&lt; node-&gt;key &lt;&lt;  &quot;(&quot; &lt;&lt; ((node-&gt;color == BLACK) ? &quot;BLACK&quot; : &quot;RED&quot;) &lt;&lt; &quot;)&quot; &lt;&lt; &quot; &quot;;
+        if (node-&gt;right != Nil)&#123;
+            InOrderPrint(node-&gt;right);
+        &#125;
+    &#125;
+private:
+    RBTNode&lt;Type&gt;* root;
+    RBTNode&lt;Type&gt;* Nil;
+&#125;;
+
+int main(int argc,char* argv[])&#123;
+    RBTree&lt;int&gt; rb;
+    int arr[] = &#123; 10,7,8,15,5,6,11,13,12&#125;;
+    int n = sizeof(arr)/sizeof(int);
+    for(int i = 0;i &lt; n;i++)&#123;
+        rb.Insert(arr[i]);
+    &#125;
+    rb.Inorder();
+    std::cout &lt;&lt; std::endl;
+    rb.preorder();
+    std::cout &lt;&lt; std::endl;
+    rb.InorderPrint();
+    std::cout &lt;&lt; std::endl;
+    rb.Remove(10);
+    rb.Inorder();
+    rb.Remove(12);
+    std::cout &lt;&lt; std::endl;
+    rb.InorderPrint();
+&#125;                
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">predormit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/05/MLP/">http://example.com/2024/03/05/MLP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/12/ligo-code/" title="ligo code"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ligo code</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/05/red-black%20tree/" title="MLP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MLP</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">predormit</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#red-black-tree"><span class="toc-number">1.</span> <span class="toc-text">red-black tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.1.</span> <span class="toc-text">性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E6%98%AF%E7%BA%A2%E8%89%B2%E6%88%96%E6%98%AF%E9%BB%91%E8%89%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.每个节点是红色或是黑色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%B9%E8%8A%82%E7%82%B9%E6%98%AF%E9%BB%91%E8%89%B2%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.根节点是黑色的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%89%80%E6%9C%89%E5%8F%B6%E7%BB%93%E7%82%B9%E6%98%AF%E9%BB%91%E8%89%B2%E7%9A%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.所有叶结点是黑色的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A6%82%E6%9E%9C%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9%E6%98%AF%E7%BA%A2%E8%89%B2%E7%9A%84%EF%BC%8C%E9%82%A3%E4%B9%88%E5%AE%83%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AD%90%E8%8A%82%E7%82%B9%E9%83%BD%E6%98%AF%E9%BB%91%E8%89%B2%E7%9A%84"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.如果一个结点是红色的，那么它的两个子节点都是黑色的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AF%B9%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%EF%BC%8C%E4%BB%8E%E8%AF%A5%E8%8A%82%E7%82%B9%E5%88%B0%E6%89%80%E6%9C%89%E5%90%8E%E4%BB%A3%E5%8F%B6%E7%BB%93%E7%82%B9%E7%9A%84%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E4%B8%8A%EF%BC%8C%E5%9D%87%E5%8C%85%E5%90%AB%E7%9B%B8%E5%90%8C%E6%95%B0%E9%87%8F%E7%9A%84%E9%BB%91%E8%89%B2%E8%8A%82%E7%82%B9%E3%80%82"><span class="toc-number">1.1.5.</span> <span class="toc-text">5.对每个节点，从该节点到所有后代叶结点的简单路径上，均包含相同数量的黑色节点。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E5%BE%97%E6%B2%A1%E6%9C%89%E4%B8%80%E6%9D%A1%E8%B7%AF%E5%BE%84%E6%98%AF%E5%8F%A6%E4%B8%80%E6%9D%A1%E7%9A%84%E4%B8%A4%E5%80%8D%E9%95%BF%E5%BA%A6%EF%BC%8C%E8%BE%BE%E5%88%B0%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91%E3%80%82"><span class="toc-number">1.2.1.</span> <span class="toc-text">使得没有一条路径是另一条的两倍长度，达到二叉平衡树。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.3.</span> <span class="toc-text">旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91%E6%80%A7%E8%B4%A8%EF%BC%8C%EF%BC%8CO-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">保证二叉树性质，，O(1)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">1.4.</span> <span class="toc-text">插入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E6%AD%A3%E5%B8%B8%E6%8F%92%E5%85%A5%EF%BC%8C%E5%86%8D%E8%B0%83%E6%95%B4%E6%BB%A1%E8%B6%B3%E6%80%A7%E8%B4%A8"><span class="toc-number">1.4.1.</span> <span class="toc-text">先正常插入，再调整满足性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%98%AF%E6%A0%91%E6%A0%B9%EF%BC%8C%E5%8F%98%E9%BB%91"><span class="toc-number">1.4.2.</span> <span class="toc-text">1.是树根，变黑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-p%E6%98%AF%E9%BB%91%EF%BC%8C%E8%BF%87"><span class="toc-number">1.4.3.</span> <span class="toc-text">2.p是黑，过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-p%E6%98%AF%E7%BA%A2%E7%9A%84%EF%BC%8C%E7%A5%96%E7%88%B6%E6%98%AF%E9%BB%91"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.p是红的，祖父是黑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%8F%94%E5%8F%94%E6%98%AF%E7%BA%A2"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">（1）叔叔是红</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.4.4.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E5%8E%BB%E7%BB%B4%E6%8A%A4%E4%B8%8A%E5%B1%82%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.4.3.</span> <span class="toc-text">继续去维护上层树的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%8F%94%E5%8F%94%E6%98%AF%E9%BB%91"><span class="toc-number">1.4.4.4.</span> <span class="toc-text">（2）叔叔是黑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E7%BA%A2%E8%8A%82%E7%82%B9%E6%97%8B%E8%BD%AC%E4%B8%8A%E6%9D%A5%EF%BC%8C%E5%86%8D%E5%8F%98%E9%BB%91%E8%89%B2"><span class="toc-number">1.4.4.5.</span> <span class="toc-text">将红节点旋转上来，再变黑色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%8F%94%E5%8F%94%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-number">1.4.4.6.</span> <span class="toc-text">（3）叔叔不存在</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E7%90%86"><span class="toc-number">1.4.4.7.</span> <span class="toc-text">同理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.5.</span> <span class="toc-text">删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E6%AD%A3%E5%B8%B8%E5%88%A0%E9%99%A4%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%88%A0%E5%8E%BB%E7%9A%84%E8%8A%82%E7%82%B9%E9%A2%9C%E8%89%B2%E4%B8%BA%E9%BB%91%E8%89%B2%E5%88%99%E8%B0%83%E7%94%A8Fixup"><span class="toc-number">1.5.1.</span> <span class="toc-text">先正常删除，如果删去的节点颜色为黑色则调用Fixup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E7%A7%8D%E6%83%85%E5%86%B5-1%EF%BC%9A%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E4%B8%BA%E7%BA%A2%E8%89%B2%E3%80%82%E5%81%9A%E6%B3%95%EF%BC%9A%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E6%94%B9%E4%B8%BA%E9%BB%91%EF%BC%8C%E7%88%B6%E4%BA%B2%E7%BB%93%E7%82%B9%E6%94%B9%E4%B8%BA%E7%BA%A2%EF%BC%8C%E5%B7%A6%E6%97%8B%E7%88%B6%E4%BA%B2%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E7%BB%93%E7%82%B9%E7%9A%84%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9"><span class="toc-number">1.5.2.</span> <span class="toc-text">4种情况 1：兄弟结点为红色。做法：兄弟结点改为黑，父亲结点改为红，左旋父亲，更新删除结点的兄弟结点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E5%8F%8A%E5%85%B6%E5%AD%A9%E5%AD%90%E9%83%BD%E6%98%AF%E9%BB%91%E8%89%B2%E3%80%82%E5%81%9A%E6%B3%95%EF%BC%9A%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E6%94%B9%E4%B8%BA%E7%BA%A2%E8%89%B2%EF%BC%8C%E5%90%8C%E6%97%B6%E7%88%B6%E4%BA%B2%E7%BB%93%E7%82%B9%E4%B8%BA%E6%96%B0%E7%9A%84%E5%88%A0%E9%99%A4%E7%BB%93%E7%82%B9%E3%80%82"><span class="toc-number">1.5.3.</span> <span class="toc-text">2:兄弟结点及其孩子都是黑色。做法：兄弟结点改为红色，同时父亲结点为新的删除结点。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E4%B8%BA%E9%BB%91%EF%BC%8C%E5%B7%A6%E5%AD%A9%E5%AD%90%E7%BA%A2%EF%BC%8C%E5%8F%B3%E5%AD%A9%E5%AD%90%E9%BB%91%E3%80%82%E5%81%9A%E6%B3%95%EF%BC%9A%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E8%AE%BE%E4%B8%BA%E7%BA%A2%E8%89%B2%EF%BC%8C%E5%85%84%E5%BC%9F%E7%9A%84%E5%B7%A6%E5%AD%A9%E5%AD%90%E8%AE%BE%E4%B8%BA%E9%BB%91%EF%BC%8C%E5%AF%B9%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E5%8F%B3%E6%97%8B%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E7%BB%93%E7%82%B9%E7%9A%84%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E3%80%82"><span class="toc-number">1.5.4.</span> <span class="toc-text">3:兄弟结点为黑，左孩子红，右孩子黑。做法：兄弟结点设为红色，兄弟的左孩子设为黑，对兄弟结点右旋，更新删除结点的兄弟结点。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%E4%B8%BA%E9%BB%91%EF%BC%8C%E5%8F%B3%E5%AD%A9%E5%AD%90%E7%BA%A2%E3%80%82%E5%81%9A%E6%B3%95%EF%BC%9A%E7%88%B6%E4%BA%B2%E7%BB%93%E7%82%B9%E7%9A%84%E9%A2%9C%E8%89%B2%E7%BB%99%E5%85%84%E5%BC%9F%E7%BB%93%E7%82%B9%EF%BC%8C%E7%88%B6%E8%8A%82%E7%82%B9%E5%86%8D%E8%AE%BE%E4%B8%BA%E9%BB%91%E8%89%B2%EF%BC%8C%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9%E7%9A%84%E5%8F%B3%E5%AD%A9%E5%AD%90%E4%B8%BA%E9%BB%91%EF%BC%8C%E6%A0%B9%E6%8D%AE%E7%88%B6%E8%8A%82%E7%82%B9%E5%B7%A6%E6%97%8B%EF%BC%8C%E6%9C%80%E5%90%8E%E8%AE%BE%E7%BD%AE%E6%9B%BF%E6%8D%A2%E5%88%A0%E9%99%A4%E7%BB%93%E7%82%B9%E7%9A%84%E7%BB%93%E7%82%B9%E4%B8%BA%E6%A0%B9%E7%BB%93%E7%82%B9%EF%BC%8C%E7%94%A8%E6%9D%A5%E7%BB%88%E6%AD%A2%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.5.5.</span> <span class="toc-text">4:兄弟结点为黑，右孩子红。做法：父亲结点的颜色给兄弟结点，父节点再设为黑色，兄弟节点的右孩子为黑，根据父节点左旋，最后设置替换删除结点的结点为根结点，用来终止循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%B4%E4%B8%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">贴个代码</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/12/ligo-code/" title="ligo code">ligo code</a><time datetime="2024-03-12T12:36:43.000Z" title="Created 2024-03-12 20:36:43">2024-03-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/05/MLP/" title="red-black tree">red-black tree</a><time datetime="2024-03-05T13:32:26.000Z" title="Created 2024-03-05 21:32:26">2024-03-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/05/red-black%20tree/" title="MLP">MLP</a><time datetime="2023-10-05T01:55:52.155Z" title="Created 2023-10-05 09:55:52">2023-10-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/30/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a><time datetime="2023-09-30T04:18:46.373Z" title="Created 2023-09-30 12:18:46">2023-09-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/14/gdb/" title="gdb">gdb</a><time datetime="2023-09-14T05:53:11.000Z" title="Created 2023-09-14 13:53:11">2023-09-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By predormit</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
